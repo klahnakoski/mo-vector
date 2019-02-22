@@ -84,11 +84,10 @@ def _add_map(func, name):
     setattr(Vector, name, mapped)
 
 
-string = "".__class__
-_add_map(string.expandtabs, "expandtabs")
-_add_map(string.strip, "strip")
-_add_map(string.lower, "lower")
-_add_map(string.replace, "replace")
+_add_map(str.expandtabs, "expandtabs")
+_add_map(str.strip, "strip")
+_add_map(str.lower, "lower")
+_add_map(str.replace, "replace")
 
 
 ###########################################################################
