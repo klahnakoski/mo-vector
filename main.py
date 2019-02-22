@@ -1,4 +1,3 @@
-
 # encoding: utf-8
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
@@ -9,12 +8,7 @@ from mo_json import value2json
 
 from mo_vector import vector
 
-output = (
-    vector([3, 2, 1])
-        .append(4)
-        .sort()
-        .limit(10)
-)
+output = vector([3, 2, 1]).append(4).sort().limit(10)
 
 print(value2json(list(output)))
 
@@ -28,11 +22,12 @@ def function(value):
 
 output = (
     vector([mystr])
-        .strip()
-        .expandtabs()
-        .lower()
-        .replace("ham", "spam")
-        .map(function)
+    .strip()
+    .expandtabs()
+    .lower()
+    .replace("ham", "spam")
+    .map(function)
+    .first()
 )
 
 print(value2json(list(output)))

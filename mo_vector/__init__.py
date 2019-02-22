@@ -9,7 +9,7 @@ from mo_dots import Null
 
 class Vector(object):
     def __init__(self, args_gen):
-        self.args_gen = args_gen
+        self.args_gen = args_gen  # A GENERATOR OF FUNCTION ARGUMENTS
 
     def __iter__(self):
         for a in self.args_gen():
@@ -60,14 +60,19 @@ class Vector(object):
         output = Null
         for a in self.args_gen():
             if output < a[0]:
-                output = a[0];
+                output = a[0]
         return output
 
+    def first(self):
+        for a in self.args_gen():
+            return a[0]
+        return Null
 
 
 ###########################################################################
 # ADD SOME SHORTCUTS FOR COMMON MAPPED METHODS
 ###########################################################################
+
 
 def _add_map(func, name):
     def mapped(self, *args, **kwargs):
@@ -87,6 +92,7 @@ _add_map(string.replace, "replace")
 # ADD EXISTING VECTOR OPERATIONS
 ###########################################################################
 
+
 def _extend_vector(func, name):
     # add vector operation to Vector
     def vect(self):
@@ -95,6 +101,7 @@ def _extend_vector(func, name):
                 yield (v,)
 
         return Vector(output)
+
     setattr(Vector, name, vect)
 
 
@@ -117,6 +124,6 @@ def items(data):
 def _lazy(list):
     def output():
         for i in list:
-            yield (i, )
+            yield (i,)
 
     return output
