@@ -13,6 +13,11 @@ output = vector([3, 2, 1]).append(4).sort().limit(10).list()
 print(value2json(output))
 
 
+output = vector([3, 8, 9, 4, 5, 6, 3, 2, 1]).append(4).max()
+
+print(value2json(output))
+
+
 mystr = "\tDo you like\n\tgreen eggs and ham?"
 
 

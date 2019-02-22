@@ -59,7 +59,7 @@ class Vector(object):
     def max(self):
         output = Null
         for a in self.args_gen():
-            if output < a[0]:
+            if not (output > a[0]):
                 output = a[0]
         return output
 
