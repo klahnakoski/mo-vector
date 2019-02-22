@@ -8,9 +8,9 @@ from mo_json import value2json
 
 from mo_vector import vector
 
-output = vector([3, 2, 1]).append(4).sort().limit(10)
+output = vector([3, 2, 1]).append(4).sort().limit(10).list()
 
-print(value2json(list(output)))
+print(value2json(output))
 
 
 mystr = "\tDo you like\n\tgreen eggs and ham?"
@@ -30,4 +30,4 @@ output = (
     .first()
 )
 
-print(value2json(list(output)))
+print(value2json(output))

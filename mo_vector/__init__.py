@@ -53,7 +53,7 @@ class Vector(object):
         return Vector(_limit)
 
     ###########################################################################
-    # TERMINAL METHODS
+    # TERMINAL METHODS (EXIT VECTOR MODE)
     ###########################################################################
 
     def max(self):
@@ -67,6 +67,9 @@ class Vector(object):
         for a in self.args_gen():
             return a[0]
         return Null
+
+    def list(self):
+        return list(self)
 
 
 ###########################################################################
@@ -109,6 +112,18 @@ _extend_vector(sorted, "sort")
 _extend_vector(reversed, "reverse")
 
 
+def _lazy(list):
+    def output():
+        for i in list:
+            yield (i,)
+
+    return output
+
+
+###########################################################################
+# ENTER VECTOR MODE
+###########################################################################
+
 def vector(list):
     return Vector(_lazy(list))
 
@@ -121,9 +136,3 @@ def items(data):
     return Vector(output)
 
 
-def _lazy(list):
-    def output():
-        for i in list:
-            yield (i,)
-
-    return output
